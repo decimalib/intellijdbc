@@ -1,4 +1,4 @@
-# Intellijbc
+# 🛢️ Intellijdbc
 
 Provides a set of functions
 to simplify the use of [JDBC](https://docs.oracle.com/javase/tutorial/jdbc/basics/index.html) functionality in Kotlin,
@@ -20,7 +20,9 @@ val query = "SELECT * from boards as b where b.ownerId = ? and b.name = ?"
 <td>
 
 ```kotlin
-val stmt = conn.setPreparedStatement(query, ownerId, boardName)
+val stmt = conn.setPreparedStatement(
+  query, ownerId, boardName
+)
 stmt.executeQueryAndClose { rs ->
     require(rs.next()) { "Board not found" }
 }
@@ -75,8 +77,7 @@ fun doWork() = connection.use { conn ->
 </table>
 
 > [!NOTE]
-> Reminder:
-> [use](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/use.html) function calls the `close` method on the
+> Function [use](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.io/use.html) calls the `close` method on the
 > receiver object
 > when the lambda is finished or an exception is thrown.
 
